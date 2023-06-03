@@ -12,10 +12,10 @@ const dispatchIfCorrect = (dispatch, remaining, event) => {
 } 
 
 const Budget = () => {
-    const { budget, remaining, dispatch } = useContext(AppContext);
+    const { budget, remaining, currency, dispatch } = useContext(AppContext);
     return (
         <div className='alert alert-secondary'>
-            <span>Budget: £</span>
+            <span>Budget: {currency}</span>
             <input type="number"
                 step="10"
                 min="0"

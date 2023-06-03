@@ -4,11 +4,11 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import "./Currency.css";
 
 const Currency = () => {
-    const { currency } = useContext(AppContext);
-    const labelMap = { "$": "", "£": "£ Pound", "€": "€ Euro", "₹": "₹ Ruppee" };
+    const { currency, dispatch } = useContext(AppContext);
+    const labelMap = { "$": "$ Dollar", "£": "£ Pound", "€": "€ Euro", "₹": "₹ Ruppee" };
     const label = labelMap[currency];
     return (
-        <Dropdown>
+        <Dropdown onSelect={(eventKey, event) => dispatch({type: "CHG_CURRENCY", payload: eventKey })}>
             <Dropdown.Toggle id="dropdown-basic" style={
                 {
                     backgroundColor: "lightgreen",
